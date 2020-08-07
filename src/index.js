@@ -30,12 +30,21 @@ function renderTodoApp() {
         let check = listItem.completed;
         let listItemMarkup = `
         <li>
-        <input type=checkbox name="finished" value="1"> 
+        <input type=checkbox name="finished" value="1" ${(listItem.completed) ? "checked" : ""}> 
         <label>${listItem.description}</label>
         </li>
         `;
         toDoList.innerHTML += listItemMarkup;
     }
+        let submitButton = document.querySelector("#submit-button")
+        let newTask = document.querySelector("#new-task")
+        submitButton.onsubmit = (e) => {
+            e.preventDefault();
+            todos.push({
+                completed: false,
+                description: `${newTask.value}`
+            });
+        }
 
     h1.innerText = "Todo List"
 
