@@ -36,9 +36,9 @@ function renderTodoApp() {
         `;
         toDoList.innerHTML += listItemMarkup;
     }
-        let submitButton = document.querySelector("#submit-button")
+        let newTaskSubmit = document.querySelector("#new-task-submit")
         let newTask = document.querySelector("#new-task")
-        submitButton.onsubmit = (e) => {
+        newTaskSubmit.onsubmit = (e) => {
             e.preventDefault();
             todos.push({
                 completed: false,
@@ -48,7 +48,7 @@ function renderTodoApp() {
 
     h1.innerText = "Todo List"
 
-    app.appendChild(h1)
+    app.appendChild(h1);
     // and maybe some here
     app.append(toDoList);
 }
