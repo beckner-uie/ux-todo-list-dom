@@ -17,6 +17,16 @@ let todos = [
         description: "Call the caterers"
     }
 ];
+let newTaskSubmit = document.querySelector("#new-task-submit")
+        let newTask = document.querySelector("#new-task")
+        newTaskSubmit.onsubmit = (e) => {
+            e.preventDefault();
+            todos.push({
+                completed: false,
+                description: `${newTask.value}`
+            });
+            return renderTodoApp(todos);
+        }
 
 function renderTodoApp() {
     let app = document.querySelector("#app")
@@ -36,16 +46,7 @@ function renderTodoApp() {
         `;
         toDoList.innerHTML += listItemMarkup;
     }
-        let newTaskSubmit = document.querySelector("#new-task-submit")
-        let newTask = document.querySelector("#new-task")
-        newTaskSubmit.onsubmit = (e) => {
-            e.preventDefault();
-            todos.push({
-                completed: false,
-                description: `${newTask.value}`
-            });
-        }
-
+        
     h1.innerText = "Todo List"
 
     app.appendChild(h1);
