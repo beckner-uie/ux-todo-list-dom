@@ -17,6 +17,14 @@ let todos = [
         description: "Call the caterers"
     }
 ];
+let app = document.querySelector("#app")
+    let h1 = document.createElement("h1")
+    // your code here
+    let toDoList = document.createElement("ul")
+    toDoList.style.listStyleType = "none";
+    app.appendChild(h1);
+    // and maybe some here
+    app.append(toDoList);
 let newTaskSubmit = document.querySelector("#new-task-submit")
         let newTask = document.querySelector("#new-task")
         newTaskSubmit.onsubmit = (e) => {
@@ -29,12 +37,7 @@ let newTaskSubmit = document.querySelector("#new-task-submit")
         }
 
 function renderTodoApp() {
-    let app = document.querySelector("#app")
-    let h1 = document.createElement("h1")
-    // your code here
-    let toDoList = document.createElement("ul")
-    toDoList.style.listStyleType = "none";
-    
+    toDoList.innerHTML = "";
     for (let index = 0; index < todos.length; index++) {
         let listItem = todos[index];
         let check = listItem.completed;
@@ -46,12 +49,7 @@ function renderTodoApp() {
         `;
         toDoList.innerHTML += listItemMarkup;
     }
-        
-    h1.innerText = "Todo List"
-
-    app.appendChild(h1);
-    // and maybe some here
-    app.append(toDoList);
+    h1.innerText = "Todo List"    
 }
 
 renderTodoApp();
